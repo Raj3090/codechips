@@ -1,0 +1,42 @@
+<mat-card>
+  <form (submit)="onSavePost(postForm)" #postForm="ngForm">
+    <div class="example-container" layout="column">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+          name="title"
+          ngModel
+          required
+          placeholder="Post Title"
+          minLength="3"
+          #title="ngModel"
+        />
+      </mat-form-field>
+      <mat-error *ngIf="title.invalid"
+        >Minimum length should be three</mat-error
+      >
+      <br />
+      <mat-form-field>
+        <textarea
+          matInput
+          rows="5"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+          name="content"
+          ngModel
+          placeholder="Post content"
+          required
+        ></textarea>
+      </mat-form-field>
+      <br />
+
+      <button color="primary" mat-raised-button type="">
+        Save
+      </button>
+    </div>
+  </form>
+</mat-card>
